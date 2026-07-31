@@ -42,7 +42,7 @@
                                 id="email" 
                                 value="{{ old('email') }}"
                                 class="form-control bg-light border-start-0 text-slate-800 @error('email') is-invalid @enderror" 
-                                placeholder="nama@email.com"
+                                placeholder="Masukan Email Anda"
                                 required 
                                 autofocus
                             >
@@ -63,7 +63,7 @@
                                 name="password" 
                                 id="password"  
                                 class="form-control bg-light border-start-0 text-slate-800 @error('password') is-invalid @enderror" 
-                                placeholder="••••••••"
+                                placeholder="Masukan Password Anda"
                                 required
                             >
                             @error('password')

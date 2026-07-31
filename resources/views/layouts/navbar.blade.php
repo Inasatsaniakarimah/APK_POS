@@ -24,7 +24,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('admin/users') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
-                       href="{{ route('admin.users') }}">Users</a>
+                       href="{{ route('admin.users') }}">User</a>
                 </li>
 
                 <li class="nav-item">
