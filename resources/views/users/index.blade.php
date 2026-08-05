@@ -49,7 +49,7 @@
                                 name="search" 
                                 value="{{ request('search') }}" 
                                 class="form-control bg-light border-start-0 text-slate-800 text-sm" 
-                                placeholder="Cari nama atau email..."
+                                placeholder="Cari Nama atau Email..."
                             >
                             <button class="btn btn-outline-secondary px-3" type="submit">
                                 Cari

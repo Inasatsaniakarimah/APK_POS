@@ -9,7 +9,7 @@
       </div>
 @endif
 
-<div class="row">
+<div class="row mb-3">
       <div class="col">
             <div>
                   <label>Gambar</label>
@@ -32,7 +32,7 @@
       </div>
 </div>
 
-<div>
+<div class="mb-3">
       <label>Nama Produk</label><br>
       <input type="text" name="name" 
              class="form-control @error('name') is-invalid @enderror"
@@ -44,7 +44,21 @@
       @enderror
 </div>
 
-<div>
+
+   <div class="mb-3">
+        <label>Jenis Produk</label><br>
+               <select name="jenis" class="form-select bg-white text-slate-800" required>
+                    <option value="">Pilih Jenis Produk</option>
+                    <option value="Minuman">Minuman</option>
+                    <option value="Makanan">Makanan</option>
+               </select>
+  </div>
+    @error('jenis')
+        <div class="invalid-feedback">{{ $message }}</div>
+    @enderror
+
+
+<div class="mb-3">
       <label>Harga Beli</label><br>
       <input type="number" name="purchase_price" 
              class="form-control @error('purchase_price') is-invalid @enderror"
@@ -56,7 +70,8 @@
       @enderror
 </div>
 
-<div>
+
+<div class="mb-3">
       <label>Harga Jual</label><br>
       <input type="number" name="selling_price" 
              class="form-control @error('selling_price') is-invalid @enderror"
@@ -68,7 +83,7 @@
       @enderror
 </div>
 
-<div>
+<div class="mb-3">
       <label>Stok</label><br>
       <input type="number" name="stok" 
              class="form-control @error('stok') is-invalid @enderror"
@@ -81,9 +96,6 @@
 </div>
 
 <div class="d-flex justify-content-end gap-2 pt-3 border-top">
-    <a href="{{ route('admin.users') }}" class="btn btn-light text-slate-600 rounded-3 px-4 fw-medium">
-        Batal
-    </a>
     <button type="submit" class="btn text-white fw-semibold rounded-3 px-4 shadow-sm border-0" style="background-color: #4f46e5;">
         <i class="bi bi-save me-1"></i> Simpan
     </button>

@@ -50,7 +50,12 @@
                     <div class="card-body p-4">
                         <div class="mb-3">
                             <span class="text-slate-400 font-monospace small fw-bold d-block text-uppercase">NAMA PRODUK</span>
-                            <h4 class="fw-bold text-slate-800 mb-0">{{ $produk->nama }}</h4>
+                            <p class="text-slate-700 mb-0">{{ $produk->nama }}</p>
+                        </div>
+
+                        <div class= "mb-3">
+                            <span class="text-slate-400 font-monospace small fw-bold d-block text-uppercase">Jenis Produk</span>
+                            <p class="text-slate-700 mb-0">{{ $produk->jenis }}</p>
                         </div>
 
                         <div class="row g-3 mb-3">
@@ -82,12 +87,6 @@
                                 <span class="fw-semibold text-slate-700">{{ $produk->user->name ?? '-' }}</span>
                             </li>
                         </ul>
-
-                        <div class="d-flex justify-content-end gap-2 pt-2 border-top">
-                            <a href="{{ route('produk.index') }}" class="btn btn-light text-slate-600 rounded-3 px-4 fw-medium">
-                                <i class="bi bi-arrow-left me-1"></i> Kembali
-                            </a>
-                        </div>
 
                     </div>
 

@@ -55,7 +55,7 @@
                                 name="search" 
                                 value="{{ request('search') }}" 
                                 class="form-control bg-light border-start-0 text-slate-800 text-sm" 
-                                placeholder="Cari transaksi / kasir..."
+                                placeholder="Cari Transaksi atau Kasir..."
                             >
                             <button class="btn btn-outline-secondary px-3" type="submit">
                                 Cari

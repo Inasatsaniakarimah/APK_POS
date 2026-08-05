@@ -32,6 +32,8 @@
                 <h4 class="fw-bold text-slate-800 mb-0">Tambah Penjualan</h4>
                 <p class="text-slate-500 mb-0 small">Pilih produk dan selesaikan transaksi kasir</p>
             </div>
+
+            
         </div>
 
         <div class="row g-4">
@@ -185,9 +187,8 @@
                                 <label class="form-label small fw-semibold text-slate-600">Metode Pembayaran</label>
                                 <select name="payment_method" class="form-select bg-white text-slate-800" required>
                                     <option value="">Pilih Metode Pembayaran</option>
-                                    <option value="CASH">Cash (Tunai)</option>
+                                    <option value="CASH">Cash</option>
                                     <option value="QRIS">QRIS</option>
-                                    <option value="TRANSFER">Transfer Bank</option>
                                 </select>
                             </div>
 
@@ -211,6 +212,7 @@
                                     <i class="bi bi-x-circle me-1"></i> Batalkan Transaksi
                                 </button>
                             </form>
+                            
                         @endcan
 
                     </div>

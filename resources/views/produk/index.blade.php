@@ -51,7 +51,7 @@
                                 name="search" 
                                 value="{{ request('search') }}" 
                                 class="form-control bg-light border-start-0 text-slate-800 text-sm" 
-                                placeholder="Cari nama produk..."
+                                placeholder="Cari Produk..."
                             >
                             <button class="btn btn-outline-secondary px-3" type="submit">
                                 Cari
@@ -69,6 +69,7 @@
                                 <th class="ps-4 py-3" style="width: 5%;">NO</th>
                                 <th>FOTO</th>
                                 <th>NAMA PRODUK</th>
+                                <th>JENIS</th>
                                 <th>HARGA BELI</th>
                                 <th>HARGA JUAL</th>
                                 <th class="text-center">STOK</th>
@@ -95,7 +96,14 @@
                                         <div class="fw-bold text-slate-800">{{ $product->nama }}</div>
                                     </td>
 
-                                    <td class="text-slate-600">
+                                    
+                                    <td class="fw-semibold text-slate-800"
+                                        <span class="fw-bold text-slate-800">
+                                            {{ $product->jenis ?? '-' }}
+                                        </span>
+                                    </td>
+
+                                    <td class="fw-semibold text-slate-800"">
                                         Rp {{ number_format($product->harga_beli, 0, ',', '.') }}
                                     </td>
 
@@ -148,7 +156,8 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="8" class="text-center py-5 text-slate-400">
+                                    
+                                    <td colspan="9" class="text-center py-5 text-slate-400">
                                         <i class="bi bi-box-seam fs-1 d-block mb-2"></i>
                                         Data Produk tidak tersedia.
                                     </td>
