@@ -22,7 +22,7 @@
                 <div class="d-inline-flex align-items-center justify-content-center rounded-3 p-2 mb-2" style="background-color: #4f46e5;">
                     <i class="bi bi-shop fs-4 text-white"></i>
                 </div>
-                <h5 class="fw-bold mb-0 tracking-wide text-white">POS Inasa</h5>
+                <h5 class="fw-bold mb-0 tracking-wide text-white">POS SAUNG BIRU RASA</h5>
                 <small class="text-slate-400 opacity-75">Silakan masuk ke akun Anda</small>
             </div>
 

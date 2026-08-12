@@ -24,8 +24,8 @@
                                 <i class="bi bi-box-seam-fill fs-5" style="color: #4f46e5;"></i>
                             </div>
                             <div>
-                                <h5 class="fw-bold text-slate-800 mb-0">Tambah Produk Baru</h5>
-                                <p class="text-slate-500 mb-0 small">Masukkan detail barang dan harga untuk inventaris toko</p>
+                                <h5 class="fw-bold text-slate-800 mb-0">Tambah Menu Baru</h5>
+                                <p class="text-slate-500 mb-0 small">Masukkan detail barang dan harga untuk inventaris Saung</p>
                             </div>
                         </div>
                         <a href="{{ route('produk.index') }}" class="btn-close" aria-label="Close"></a>

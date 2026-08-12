@@ -33,7 +33,7 @@
 </div>
 
 <div class="mb-3">
-      <label>Nama Produk</label><br>
+      <label>Nama Menu</label><br>
       <input type="text" name="name" 
              class="form-control @error('name') is-invalid @enderror"
              value="{{ old('name', $produk->name ?? '') }}">
@@ -46,9 +46,9 @@
 
 
    <div class="mb-3">
-        <label>Jenis Produk</label><br>
+        <label>Jenis Menu</label><br>
                <select name="jenis" class="form-select bg-white text-slate-800" required>
-                    <option value="">Pilih Jenis Produk</option>
+                    <option value="">Pilih Jenis Menu</option>
                     <option value="Minuman">Minuman</option>
                     <option value="Makanan">Makanan</option>
                </select>

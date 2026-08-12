@@ -5,7 +5,7 @@
             <div class="d-flex align-items-center justify-content-center rounded-3 p-1.5" style="background-color: #4f46e5;">
                 <i class="bi bi-shop fs-5 text-white"></i>
             </div>
-            <span>Aplikasi POS</span>
+            <span>SAUNG BIRU RASA</span>
         </a>
 
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" 
@@ -19,22 +19,22 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
                 <li class="nav-item">
                     <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('dashboard') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
-                       aria-current="page" href="{{ route('dashboard') }}">Dashboard</a>
+                       aria-current="page" href="{{ route('dashboard') }}">Beranda</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('admin/users') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
-                       href="{{ route('admin.users') }}">User</a>
+                       href="{{ route('admin.users') }}">Pengguna</a>
                 </li>
 
                 <li class="nav-item">
                     <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('produk') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
-                       href="{{ route('produk.index') }}">Produk</a>
+                       href="{{ route('produk.index') }}">Menu</a>
                 </li>
                 
                 <li class="nav-item">
                     <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('penjualan') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
-                       href="{{ route('penjualan.index') }}">Penjualan</a>
+                       href="{{ route('penjualan.index') }}">Transaksi/penjualan</a>
                 </li> 
             </ul>
 

@@ -12,6 +12,14 @@
     .text-slate-500 { color: #64748b; }
     .text-slate-400 { color: #94a3b8; }
     .rounded-4 { border-radius: 1rem !important; }
+    
+    .product-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.08) !important;
+    }
 </style>
 
 <div class="bg-slate-100 min-vh-100 py-4" style="background-color: #f8fafc;">
@@ -24,22 +32,25 @@
             </div>
         @endif
 
-        <div class="d-flex align-items-center mb-4">
-            <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white shadow-sm rounded-4" style="width: 52px; height: 52px;">
-                <i class="bi bi-calculator-fill fs-4" style="color: #4f46e5;"></i>
-            </div>
-            <div class="ms-3">
-                <h4 class="fw-bold text-slate-800 mb-0">Tambah Penjualan</h4>
-                <p class="text-slate-500 mb-0 small">Pilih produk dan selesaikan transaksi kasir</p>
+        <div class="d-flex align-items-center justify-content-between mb-4">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white shadow-sm rounded-4" style="width: 52px; height: 52px;">
+                    <i class="bi bi-calculator-fill fs-4" style="color: #4f46e5;"></i>
+                </div>
+                <div class="ms-3">
+                    <h4 class="fw-bold text-slate-800 mb-0">Tambah Penjualan</h4>
+                    <p class="text-slate-500 mb-0 small">Pilih produk dan selesaikan transaksi kasir</p>
+                </div>
             </div>
 
-            
+            <a href="{{ route('penjualan.index') }}" class="btn btn-light bg-white border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center text-slate-600" style="width: 44px; height: 44px;" title="Kembali">
+                <i class="bi bi-x-lg fs-5"></i>
+            </a>
         </div>
 
         <div class="row g-4">
             
-            {{-- =================== BAGIAN KIRI: DAFTAR PRODUK =================== --}}
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-7">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white h-100">
                     
                     <div class="card-header bg-white py-3 px-4 border-0 border-bottom">
@@ -49,49 +60,60 @@
                                 <span class="input-group-text bg-light border-end-0 text-slate-400">
                                     <i class="bi bi-search"></i>
                                 </span>
-                                <input type="text"
-                                       name="search"
-                                       value="{{ request('search') }}"
-                                       class="form-control bg-light border-start-0 text-slate-800"
-                                       placeholder="Cari nama produk..."
-                                       onkeyup="this.form.submit()">
+                               <input 
+                                type="text" 
+                                name="search" 
+                                value="{{ request('search') }}" 
+                                class="form-control bg-light border-start-0 text-slate-800 text-sm" 
+                                placeholder="Cari Menu..."
+                            >
+                            <button class="btn btn-outline-secondary px-3" type="submit">
+                                Cari
+                            </button>
                             </div>
                         </form>
                     </div>
 
                     <div class="card-body p-3" style="max-height: 65vh; overflow-y: auto;">
-                        <div class="d-flex flex-column gap-2">
+                        <div class="row g-3">
                             @foreach ($products as $product)
-                                <form method="POST" action="{{ route('itempenjualan.store') }}" class="m-0">
-                                    @csrf
-                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <div class="col-6 col-md-4 col-xl-3">
+                                    <form method="POST" action="{{ route('itempenjualan.store') }}" class="h-15 m-0">
+                                        @csrf
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <input type="hidden" name="quantity" value="1">
 
-                                    <div class="p-2 border rounded-3 bg-light d-flex align-items-center justify-content-between gap-2">
-                                        
-                                        <div class="flex-grow-1 ps-2">
-                                            <div class="fw-semibold text-slate-800">{{ $product->nama }}</div>
-                                            <small class="text-slate-500">Rp {{ number_format($product->harga_jual, 0, ',', '.') }}</small>
+                                        <div class="card product-card border rounded-3 h-100 p-2 d-flex flex-column justify-content-between bg-white shadow-sm">
+                                            <div>
+                                                <div class="position-relative mb-2 rounded-2 overflow-hidden bg-light" style="aspect-ratio: 1/1;">
+                                                    @if($product->foto)
+                                                        <img src="{{ asset('storage/' . $product->foto) }}" alt="{{ $product->nama }}" class="w-100 h-100 object-fit-cover">
+                                                    @else
+                                                        <div class="w-100 h-100 d-flex align-items-center justify-content-center text-slate-400">
+                                                            <i class="bi bi-image fs-2"></i>
+                                                        </div>
+                                                    @endif
+                                                </div>
+
+                                                <h6 class="text-slate-800 fw-semibold text-truncate mb-1" style="font-size: 0.9rem;" title="{{ $product->nama }}">
+                                                    {{ $product->nama }}
+                                                </h6>
+
+                                                <div class="text-danger fw-bold mb-2" style="font-size: 0.95rem;">
+                                                    Rp {{ number_format($product->harga_jual, 0, ',', '.') }}
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <button type="submit" 
+                                                        class="btn btn-sm w-15 text-white fw-semibold rounded-2 border-0 {{ $sale->status === 'COMPLETED' ? 'disabled' : '' }}"
+                                                        style="background-color: #0c5db4; font-size: 0.8rem;">
+                                                    <i class="bi bi-plus-lg me-1"></i> Beli
+                                                </button>
+                                            </div>
                                         </div>
-
-                                        <div style="width: 90px;">
-                                            <input type="number" 
-                                                   name="quantity" 
-                                                   value="1" 
-                                                   min="1"
-                                                   class="form-control form-control-sm text-center {{ $sale->status === 'COMPLETED' ? 'readonly' : '' }}"
-                                                   {{ $sale->status === 'COMPLETED' ? 'readonly' : '' }}>
-                                        </div>
-
-                                        <div>
-                                            <button type="submit" 
-                                                    class="btn btn-sm text-white fw-semibold px-3 py-1.5 rounded-3 border-0 {{ $sale->status === 'COMPLETED' ? 'disabled' : '' }}"
-                                                    style="background-color: #4f46e5;">
-                                                <i class="bi bi-plus-lg me-1"></i> Tambah
-                                            </button>
-                                        </div>
-
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -99,8 +121,7 @@
                 </div>
             </div>
 
-            {{-- =================== BAGIAN KANAN: KERANJANG & CHECKOUT =================== --}}
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-lg-5">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white d-flex flex-column h-100">
                     
                     <div class="card-header bg-white py-3 px-4 border-0 border-bottom">
@@ -113,19 +134,19 @@
                                 <tr>
                                     <th scope="col" class="ps-4 py-3">PRODUK</th>
                                     <th scope="col" class="py-3">HARGA</th>
-                                    <th scope="col" class="py-3" style="width: 100px;">QTY</th>
+                                    <th scope="col" class="py-3" style="width: 80px;">QTY</th>
                                     <th scope="col" class="py-3">SUBTOTAL</th>
-                                    <th scope="col" class="text-end pe-4 py-3" style="width: 60px;">AKSI</th>
+                                    <th scope="col" class="text-end pe-4 py-3" style="width: 50px;">AKSI</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse($sale->itemPenjualan as $item)
                                     <tr>
-                                        <td class="ps-4 fw-medium text-slate-800">
+                                        <td class="ps-4 fw-medium text-slate-800 text-truncate" style="max-width: 130px;">
                                             {{ $item->produk->nama }}
                                         </td>
 
-                                        <td class="text-slate-600">
+                                        <td class="text-slate-600 small">
                                             Rp {{ number_format($item->produk->harga_jual, 0, ',', '.') }}
                                         </td>
 
@@ -138,11 +159,11 @@
                                                        value="{{ $item->kuantitas }}" 
                                                        min="1"
                                                        onchange="this.form.submit()"
-                                                       class="form-control form-control-sm text-center">
+                                                       class="form-control form-control-sm text-center px-1">
                                             </form>
                                         </td>
 
-                                        <td class="fw-bold text-indigo" style="color: #4f46e5;">
+                                        <td class="fw-bold small" style="color: #4f46e5;">
                                             Rp {{ number_format($item->subtotal, 0, ',', '.') }}
                                         </td>
 
@@ -151,7 +172,7 @@
                                                 <form method="POST" action="{{ route('itempenjualan.destroy', $item->id) }}" class="m-0">
                                                     @csrf 
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-sm btn-light text-danger border p-1.5 rounded-3" title="Hapus Item">
+                                                    <button type="submit" class="btn btn-sm btn-light text-danger border p-1 rounded-2" title="Hapus Item">
                                                         <i class="bi bi-trash-fill"></i>
                                                     </button>
                                                 </form>
@@ -194,7 +215,7 @@
 
                             <button type="submit" 
                                     class="btn text-white fw-bold w-100 py-2.5 rounded-3 border-0 shadow-sm {{ $sale->status === 'COMPLETED' ? 'disabled' : '' }}"
-                                    style="background-color: #10b981;">
+                                    style="background-color: #0c5db4;">
                                 <i class="bi bi-check-circle-fill me-1"></i> Checkout Transaksi
                             </button>
                         </form>
@@ -212,7 +233,6 @@
                                     <i class="bi bi-x-circle me-1"></i> Batalkan Transaksi
                                 </button>
                             </form>
-                            
                         @endcan
 
                     </div>
@@ -221,7 +241,6 @@
             </div>
 
         </div>
-
     </div>
 </div>
 

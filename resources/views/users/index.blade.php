@@ -25,13 +25,13 @@
                     <i class="bi bi-people-fill text-indigo fs-4" style="color: #4f46e5;"></i>
                 </div>
                 <div class="ms-3">
-                    <h3 class="fw-bold text-slate-800 mb-0">Manajemen User</h3>
+                    <h3 class="fw-bold text-slate-800 mb-0">Manajemen Pengguna</h3>
                     <p class="text-slate-500 mb-0 small">Kelola data pengguna dan hak akses sistem POS</p>
                 </div>
             </div>
 
             <a href="{{ route('admin.users.create') }}" class="btn text-white fw-semibold rounded-3 px-4 py-2 shadow-sm border-0 d-inline-flex align-items-center justify-content-center" style="background-color: #4f46e5;">
-                <i class="bi bi-plus-lg me-2"></i> Tambah User Baru
+                <i class="bi bi-plus-lg me-2"></i> Tambah Pengguna
             </a>
         </div>
 
@@ -65,9 +65,9 @@
                         <thead class="bg-light">
                             <tr class="text-slate-400 small">
                                 <th class="ps-4 py-3" style="width: 5%;">NO</th>
-                                <th>NAMA</th>
-                                <th>EMAIL</th>
-                                <th>ROLE</th>
+                                <th scope="col" class="py-3">NAMA</th>
+                                <th scope="col" class="py-3">EMAIL</th>
+                                <th scope="col" class="py-3">ROLE</th>
                                 <th class="text-end pe-4" style="width: 20%;">AKSI</th>
                             </tr>
                         </thead>
@@ -114,7 +114,7 @@
                                 <tr>
                                     <td colspan="5" class="text-center py-5 text-slate-400">
                                         <i class="bi bi-person-x fs-1 d-block mb-2"></i>
-                                        Tidak ada data user yang ditemukan.
+                                        Tidak ada data pengguna yang ditemukan.
                                     </td>
                                 </tr>
                             @endforelse

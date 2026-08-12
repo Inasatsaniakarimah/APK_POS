@@ -88,7 +88,7 @@
                         <table class="table table-hover align-middle mb-0">
                             <thead class="bg-light">
                                 <tr class="text-slate-400 small">
-                                    <th class="ps-4 py-3">NAMA PRODUK</th>
+                                    <th class="ps-4 py-3">NAMA MENU</th>
                                     <th class="text-end pe-4">STOK</th>
                                 </tr>
                             </thead>
@@ -118,7 +118,7 @@
                         @if($produkStokHabis->isEmpty())
                             <div class="py-4">
                                 <i class="bi bi-check2-circle text-success fs-1"></i>
-                                <p class="text-slate-400 small mt-2">Tidak ada produk habis.</p>
+                                <p class="text-slate-400 small mt-2">Tidak ada menu yang habis.</p>
                             </div>
                         @else
                             @endif
@@ -129,14 +129,14 @@
             <div class="col-lg-7">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white h-100">
                     <div class="card-header bg-white py-3 px-4 border-0 border-bottom d-flex justify-content-between align-items-center">
-                        <h6 class="fw-bold text-slate-800 mb-0"><i class="bi bi-star-fill text-warning me-2"></i>Produk Terlaris</h6>
+                        <h6 class="fw-bold text-slate-800 mb-0"><i class="bi bi-star-fill text-warning me-2"></i>Menu Terlaris</h6>
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
                             <table class="table table-hover align-middle mb-0">
                                 <thead class="bg-light">
                                     <tr class="text-slate-400 small">
-                                        <th class="ps-4 py-3">PRODUK</th>
+                                        <th class="ps-4 py-3">MENU</th>
                                         <th class="text-center">SISA STOK</th>
                                         <th class="text-end pe-4">TERJUAL</th>
                                     </tr>

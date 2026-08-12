@@ -19,10 +19,13 @@ class UserController extends Controller
     {
         $keyword = $request->input('search');
 
-        if($keyword) {
-            $users = User::whereRaw("MATCH(name, email) AGAINST(? IN BOOLEAN MODE)", [$keyword])
-                        ->paginate(10)
-                        ->withQueryString();
+        if ($keyword) {
+            $users = User::where(function ($query) use ($keyword) {
+                        $query->where('name', 'LIKE', "%{$keyword}%")
+                              ->orWhere('email', 'LIKE', "%{$keyword}%");
+                    })
+                    ->paginate(10)
+                    ->withQueryString();
         } else {
             $users = User::query()->paginate(10)->withQueryString();
         }

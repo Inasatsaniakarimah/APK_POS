@@ -24,7 +24,7 @@
                                 <i class="bi bi-pencil-square text-warning fs-5"></i>
                             </div>
                             <div>
-                                <h5 class="fw-bold text-slate-800 mb-0">Edit Produk</h5>
+                                <h5 class="fw-bold text-slate-800 mb-0">Edit Menu</h5>
                                 <p class="text-slate-500 mb-0 small">Ubah informasi, harga, atau stok barang</p>
                             </div>
                         </div>

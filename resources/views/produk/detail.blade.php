@@ -26,8 +26,8 @@
                                 <i class="bi bi-info-circle text-info fs-5"></i>
                             </div>
                             <div>
-                                <h5 class="fw-bold text-slate-800 mb-0">Detail Produk</h5>
-                                <p class="text-slate-500 mb-0 small">Informasi ketersediaan dan rincian barang</p>
+                                <h5 class="fw-bold text-slate-800 mb-0">Detail Menu</h5>
+                                <p class="text-slate-500 mb-0 small">Informasi ketersediaan</p>
                             </div>
                         </div>
                         <a href="{{ route('produk.index') }}" class="btn-close" aria-label="Close"></a>
@@ -42,19 +42,19 @@
                         @else
                             <div class="py-4 text-slate-400">
                                 <i class="bi bi-image fs-1 d-block mb-2"></i>
-                                Tidak ada foto produk
+                                Tidak ada foto Menu
                             </div>
                         @endif
                     </div>
 
                     <div class="card-body p-4">
                         <div class="mb-3">
-                            <span class="text-slate-400 font-monospace small fw-bold d-block text-uppercase">NAMA PRODUK</span>
+                            <span class="text-slate-400 font-monospace small fw-bold d-block text-uppercase">NAMA MENU</span>
                             <p class="text-slate-700 mb-0">{{ $produk->nama }}</p>
                         </div>
 
                         <div class= "mb-3">
-                            <span class="text-slate-400 font-monospace small fw-bold d-block text-uppercase">Jenis Produk</span>
+                            <span class="text-slate-400 font-monospace small fw-bold d-block text-uppercase">JENIS MENU</span>
                             <p class="text-slate-700 mb-0">{{ $produk->jenis }}</p>
                         </div>
 
@@ -80,7 +80,7 @@
                         <ul class="list-group list-group-flush mb-4 small">
                             <li class="list-group-item d-flex justify-content-between align-items-center py-2 px-0">
                                 <span class="text-slate-500"><i class="bi bi-boxes me-2"></i>Stok</span>
-                                <span class="fw-bold text-slate-800">{{ $produk->stok }} Unit</span>
+                                <span class="fw-bold text-slate-800">{{ $produk->stok }} Porsi</span>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center py-2 px-0">
                                 <span class="text-slate-500"><i class="bi bi-person me-2"></i>Nama Penginput</span>

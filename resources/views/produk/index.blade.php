@@ -25,14 +25,14 @@
                     <i class="bi bi-box-seam-fill text-indigo fs-4" style="color: #4f46e5;"></i>
                 </div>
                 <div class="ms-3">
-                    <h3 class="fw-bold text-slate-800 mb-0">Manajemen Produk</h3>
-                    <p class="text-slate-500 mb-0 small">Kelola ketersediaan barang dan harga jual toko</p>
+                    <h3 class="fw-bold text-slate-800 mb-0">Manajemen Menu</h3>
+                    <p class="text-slate-500 mb-0 small">Kelola ketersediaan Makanan dan Minuman</p>
                 </div>
             </div>
 
             @can('create', App\Models\Produk::class)
                 <a href="{{ route('produk.create') }}" class="btn text-white fw-semibold rounded-3 px-4 py-2 shadow-sm border-0 d-inline-flex align-items-center justify-content-center" style="background-color: #4f46e5;">
-                    <i class="bi bi-plus-lg me-2"></i> Tambah Produk Baru
+                    <i class="bi bi-plus-lg me-2"></i> Tambah Menu Baru
                 </a>
             @endcan
         </div>
@@ -51,7 +51,7 @@
                                 name="search" 
                                 value="{{ request('search') }}" 
                                 class="form-control bg-light border-start-0 text-slate-800 text-sm" 
-                                placeholder="Cari Produk..."
+                                placeholder="Cari Menu..."
                             >
                             <button class="btn btn-outline-secondary px-3" type="submit">
                                 Cari
@@ -66,14 +66,14 @@
                     <table class="table table-hover align-middle mb-0">
                         <thead class="bg-light">
                             <tr class="text-slate-400 small">
-                                <th class="ps-4 py-3" style="width: 5%;">NO</th>
-                                <th>FOTO</th>
-                                <th>NAMA PRODUK</th>
-                                <th>JENIS</th>
-                                <th>HARGA BELI</th>
-                                <th>HARGA JUAL</th>
-                                <th class="text-center">STOK</th>
-                                <th>ADMIN</th>
+                                <th scope="col" class="ps-4 py-3" style="width: 60px;">NO</th>
+                                <th scope="col" class="py-3">FOTO</th>
+                                <th scope="col" class="py-3">NAMA MENU</th>
+                                <th scope="col" class="py-3">JENIS</th>
+                                <th scope="col" class="py-3">HARGA BELI</th>
+                                <th scope="col" class="py-3">HARGA JUAL</th>
+                                <th scope="col" class="py-3 text-center">STOK</th>
+                                <th scope="col" class="py-3">ADMIN</th>
                                 <th class="text-end pe-4" style="width: 20%;">AKSI</th>
                             </tr>
                         </thead>
@@ -115,9 +115,9 @@
                                         @if($product->stok <= 0)
                                             <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 rounded-pill px-3">Habis</span>
                                         @elseif($product->stok < 10)
-                                            <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 rounded-pill px-3">{{ $product->stok }} Unit</span>
+                                            <span class="badge bg-warning bg-opacity-10 text-warning border border-warning border-opacity-25 rounded-pill px-3">{{ $product->stok }} Porsi</span>
                                         @else
-                                            <span class="badge bg-light text-slate-600 border rounded-pill px-3">{{ $product->stok }} Unit</span>
+                                            <span class="badge bg-light text-slate-600 border rounded-pill px-3">{{ $product->stok }} Porsi</span>
                                         @endif
                                     </td>
 
@@ -159,7 +159,7 @@
                                     
                                     <td colspan="9" class="text-center py-5 text-slate-400">
                                         <i class="bi bi-box-seam fs-1 d-block mb-2"></i>
-                                        Data Produk tidak tersedia.
+                                        Data produk tidak tersedia.
                                     </td>
                                 </tr>
                             @endforelse
