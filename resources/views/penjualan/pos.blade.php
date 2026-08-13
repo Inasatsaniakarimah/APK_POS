@@ -42,10 +42,7 @@
                     <p class="text-slate-500 mb-0 small">Pilih produk dan selesaikan transaksi kasir</p>
                 </div>
             </div>
-
-            <a href="{{ route('penjualan.index') }}" class="btn btn-light bg-white border-0 shadow-sm rounded-circle d-flex align-items-center justify-content-center text-slate-600" style="width: 44px; height: 44px;" title="Kembali">
-                <i class="bi bi-x-lg fs-5"></i>
-            </a>
+            <a href="{{ route('penjualan.index') }}" class="btn-close" aria-label="Close"></a>
         </div>
 
         <div class="row g-4">

@@ -149,7 +149,7 @@
                                                 <span class="text-slate-500 small">{{ $produk->stok }} Item</span>
                                             </td>
                                             <td class="text-end pe-4">
-                                                <span class="fw-bold text-indigo" style="color: #4f46e5;">{{ number_format($produk->total_terjual) }} Unit</span>
+                                                <span class="fw-bold text-indigo" style="color: #000000;">{{ number_format($produk->total_terjual) }} Unit</span>
                                             </td>
                                         </tr>
                                     @empty

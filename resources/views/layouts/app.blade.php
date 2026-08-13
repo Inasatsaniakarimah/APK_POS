@@ -10,17 +10,19 @@
 </head>
 <body>
       
- <div class="container">
+<!-- Ganti .container dengan .container-fluid px-0 agar melebar penuh selebar layar -->
+<div class="container-fluid px-0">
 
       @if (session('success'))
-              <div class="alert alert-success">
-                    {{ session('success') }}
+              <div class="alert alert-success m-3">
+                  {{ session('success') }}
               </div>
       @endif
 
       <!-- isi konten yang kita kirimkan dari view lain -->
-            @yield('content')
- </div>
+      @yield('content')
+      
+</div>
 
 </body>
 </html>

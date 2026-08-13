@@ -29,9 +29,7 @@
             </div>
 
             <div class="d-flex gap-2">
-                <a href="{{ route('penjualan.index') }}" class="btn btn-light text-slate-700 border fw-semibold rounded-3 px-3 py-2 d-inline-flex align-items-center gap-2">
-                    <i class="bi bi-arrow-left"></i> Kembali
-                </a>
+                <a href="{{ route('penjualan.index') }}" class="btn-close" aria-label="Close"></a>
             </div>
         </div>
 
