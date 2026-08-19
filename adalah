@@ -19,3 +19,13 @@
 #DELETE FROM sqlite_sequence WHERE name IN ('item_penjualan', 'penjualan', 'produk');
 
 #PRAGMA foreign_keys = ON;
+
+
+#mysql
+#SET FOREIGN_KEY_CHECKS = 0;
+
+#TRUNCATE TABLE item_penjualan;
+#TRUNCATE TABLE penjualan;
+#TRUNCATE TABLE produk;
+
+#SET FOREIGN_KEY_CHECKS = 1;

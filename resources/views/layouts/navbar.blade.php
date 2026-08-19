@@ -23,18 +23,23 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('admin/users') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
+                    <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('admin/users*') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
                        href="{{ route('admin.users') }}">Pengguna</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('produk') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
+                    <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('produk*') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
                        href="{{ route('produk.index') }}">Menu</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('penjualan') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
+                    <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('penjualan*') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
                        href="{{ route('penjualan.index') }}">Transaksi/penjualan</a>
+                </li> 
+
+                <li class="nav-item">
+                    <a class="nav-link px-3 py-2 rounded-3 {{ Request::is('tentang') ? 'active fw-semibold bg-slate-800 text-white' : 'text-slate-300' }}" 
+                       href="{{ route('tentang.index') }}">Tentang</a>
                 </li> 
             </ul>
 
@@ -63,5 +68,5 @@
 <style>
     .bg-slate-800 { background-color: #1e293b !important; }
     .text-slate-300 { color: #cbd5e1 !important; }
-    .nav-link:hover { color: #524848 !important; background-color: rgba(255, 255, 255, 0.05); }
+    .nav-link:hover { color: #ffffff !important; background-color: rgba(255, 255, 255, 0.05); }
 </style>
