@@ -22,7 +22,7 @@
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 gap-3">
             <div class="d-flex align-items-center">
                 <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white shadow-sm rounded-4" style="width: 56px; height: 56px;">
-                    <i class="bi bi-box-seam-fill text-indigo fs-4" style="color: #4f46e5;"></i>
+                    <i class="bi bi-cup-hot fs-4" style="color: #4f46e5;"></i>
                 </div>
                 <div class="ms-3">
                     <h3 class="fw-bold text-slate-800 mb-0">Manajemen Menu</h3>
