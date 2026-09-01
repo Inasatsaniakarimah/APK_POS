@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Data Produk - POS Inasa')
+@section('title', 'Data Menu')
 
 @section('content')
 
@@ -144,7 +144,7 @@
                                                     <button 
                                                         type="submit" 
                                                         class="btn btn-sm btn-outline-danger rounded-2 px-2 fw-medium"
-                                                        onclick="return confirm('Yakin hapus produk ini??')"
+                                                        onclick="return confirm('Yakin hapus menu ini??')"
                                                         title="Hapus"
                                                     >
                                                         <i class="bi bi-trash"></i>

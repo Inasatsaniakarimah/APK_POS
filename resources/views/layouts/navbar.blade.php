@@ -1,7 +1,5 @@
 <nav class="navbar navbar-expand-lg border-bottom sticky-top py-2" style="background-color: #f0f3ff; border-color: #c7d2fe !important;">
     <div class="container-fluid px-4">
-        
-        <!-- Brand Logo -->
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold me-4" href="{{ route('dashboard') }}" style="color: #1e1b4b;">
             <div class="p-2 rounded-3 shadow-sm d-flex align-items-center justify-content-center" style="background-color: #c7d2fe; ">
                 <i class="bi bi-shop fs-5"></i>
@@ -9,7 +7,6 @@
             <span>SAUNG BIRU RASA</span>
         </a>
 
-        <!-- Toggler Mobile -->
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" 
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -17,8 +14,6 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            
-            <!-- Navigation Links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 gap-1">
                 <li class="nav-item">
                     <a class="nav-link px-3 py-2 rounded-3 d-flex align-items-center gap-1.5 {{ Request::is('dashboard') ? 'active-soft fw-semibold' : 'text-slate-custom' }}" 
@@ -56,7 +51,6 @@
                 </li> 
             </ul>
 
-            <!-- Profile & Logout Section -->
             <div class="d-flex align-items-center gap-2 pt-2 pt-lg-0">
                 
                 @if(Auth::check())

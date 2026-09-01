@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Edit Produk - ' . $produk->nama)
+@section('title', 'Edit Menu ' . $produk->nama)
 
 @section('content')
 

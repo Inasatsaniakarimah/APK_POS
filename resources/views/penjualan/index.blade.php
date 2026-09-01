@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Penjualan - POS Inasa')
+@section('title', 'Penjualan/Transaksi')
 
 @section('content')
 
@@ -55,7 +55,7 @@
                                 name="search" 
                                 value="{{ request('search') }}" 
                                 class="form-control bg-light border-start-0 text-slate-800 text-sm" 
-                                placeholder="Cari Transaksi atau Kasir..."
+                                placeholder="Cari Kasir..."
                             >
                             <button class="btn btn-outline-secondary px-3" type="submit">
                                 Cari

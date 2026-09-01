@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Detail Penjualan - POS Inasa')
+@section('title', 'Detail Penjualan')
 
 @section('content')
 

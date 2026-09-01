@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Users')
+@section('title', 'Pengguna')
 
 @section('content')
 
@@ -102,7 +102,7 @@
                                                 <button 
                                                     type="submit" 
                                                     class="btn btn-sm btn-outline-danger rounded-2 px-3 fw-medium"
-                                                    onclick="return confirm('Yakin ingin menghapus user {{ $user->name }}?')"
+                                                    onclick="return confirm('Yakin ingin menghapus Pengguna {{ $user->name }}?')"
                                                 >
                                                     <i class="bi bi-trash me-1"></i> Hapus
                                                 </button>

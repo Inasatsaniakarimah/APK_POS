@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Tambah User - POS Inasa')
+@section('title', 'Tambah User')
 
 @section('content')
 
@@ -24,7 +24,7 @@
                                 <i class="bi bi-person-plus-fill fs-5" style="color: #4f46e5;"></i>
                             </div>
                             <div>
-                                <h5 class="fw-bold text-slate-800 mb-0">Tambah User Baru</h5>
+                                <h5 class="fw-bold text-slate-800 mb-0">Tambah Pengguna Baru</h5>
                                 <p class="text-slate-500 mb-0 small">Buat akun pengguna baru untuk akses sistem POS</p>
                             </div>
                         </div>
