@@ -23,7 +23,7 @@
                     <i class="bi bi-receipt-cutoff fs-4" style="color: #4f46e5;"></i>
                 </div>
                 <div class="ms-3">
-                    <h4 class="fw-bold text-slate-800 mb-0">Detail Penjualan #{{ $sale->id }}</h4>
+                    <h4 class="fw-bold text-slate-800 mb-0">Detail Penjualan</h4>
                     <p class="text-slate-500 mb-0 small">Informasi lengkap mengenai rincian transaksi kasir</p>
                 </div>
             </div>

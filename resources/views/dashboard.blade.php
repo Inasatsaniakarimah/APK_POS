@@ -1,7 +1,7 @@
 <!-- memanggil file app.blade.php -->
- @extends('layouts.app')
+@extends('layouts.app')
 
- <!-- mengirimkan nilai ke tittle untuk ditampilkan --> 
+<!-- mengirimkan nilai ke tittle untuk ditampilkan --> 
 @section('title', 'Beranda')
 
 <!-- batas awal isi konten --> 
@@ -114,14 +114,32 @@
                     <div class="card-header bg-white py-3 px-4 border-0 border-bottom">
                         <h6 class="fw-bold text-slate-800 mb-0"><i class="bi bi-x-circle text-danger me-2"></i>Stok Habis</h6>
                     </div>
-                    <div class="card-body p-0 text-center">
+                    <div class="card-body p-0">
                         @if($produkStokHabis->isEmpty())
-                            <div class="py-4">
+                            <div class="py-4 text-center">
                                 <i class="bi bi-check2-circle text-success fs-1"></i>
-                                <p class="text-slate-400 small mt-2">Tidak ada menu yang habis.</p>
+                                <p class="text-slate-400 small mt-2 mb-0">Tidak ada menu yang habis.</p>
                             </div>
                         @else
-                            @endif
+                            <table class="table table-hover align-middle mb-0">
+                                <thead class="bg-light">
+                                    <tr class="text-slate-400 small">
+                                        <th class="ps-4 py-3">NAMA MENU</th>
+                                        <th class="text-end pe-4">STOK</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($produkStokHabis as $produk)
+                                        <tr>
+                                            <td class="ps-4 fw-medium text-slate-700">{{ $produk->nama }}</td>
+                                            <td class="text-end pe-4">
+                                                <span class="badge bg-danger rounded-pill">{{ $produk->stok }}</span>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -167,6 +185,5 @@
 
     </div>
 </div>
-
 
 @endsection
