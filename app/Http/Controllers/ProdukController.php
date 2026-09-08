@@ -112,10 +112,8 @@ class ProdukController extends Controller
             'stok' => $dataReq['stok'] ?? true,
         ];
         
-        //jika upload foto baru 
+       
         if ($request->hasFile('foto')) {
-
-            //hapus foto lama jika ada dan memang tersimpan
             if (
                 $produk->foto && 
                 Storage::disk('public')->exists($produk->foto)
@@ -144,4 +142,5 @@ class ProdukController extends Controller
         $produk->delete();
         return redirect()->route('produk.index')->with('success', 'Produk berhasil dihapus.');
     }
+    
 }

@@ -2,9 +2,9 @@
     <div class="container-fluid px-4">
         <a class="navbar-brand d-flex align-items-center gap-2 fw-bold me-4" href="{{ route('dashboard') }}" style="color: #1e1b4b;">
             <div class="p-2 rounded-3 shadow-sm d-flex align-items-center justify-content-center" style="background-color: #c7d2fe; ">
-                <i class="bi bi-shop fs-5"></i>
+                <i class="bi bi-cup-hot fs-6"></i>
             </div>
-            <span>SAUNG BIRU RASA</span>
+            <span>ISK Coffee</span>
         </a>
 
         <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" 

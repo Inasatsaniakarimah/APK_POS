@@ -21,7 +21,7 @@
                     <div class="card-header bg-white py-3 px-4 border-0 border-bottom d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
                             <div class="flex-shrink-0 d-flex align-items-center justify-content-center rounded-3 p-2 me-3" style="width: 42px; height: 42px; background-color: #eef2ff;">
-                                <i class="bi bi-box-seam-fill fs-5" style="color: #4f46e5;"></i>
+                                <i class="bi bi-cup-hot fs-5" style="color: #4f46e5;"></i>
                             </div>
                             <div>
                                 <h5 class="fw-bold text-slate-800 mb-0">Tambah Menu Baru</h5>

@@ -61,9 +61,9 @@
             
             <div class="text-center pt-3 pb-2">
                 <div class="d-inline-flex align-items-center justify-content-center rounded-circle p-3 mb-3 shadow-sm" style="background-color: #e0e7ff; width: 68px; height: 68px;">
-                    <i class="bi bi-shop fs-5"></i>
+                    <i class="bi bi-cup-hot fs-6"></i>
                 </div>
-                <h4 class="fw-bold mb-1" style="color: #1e1b4b; letter-spacing: -0.3px;">POS SAUNG RASA</h4>
+                <h4 class="fw-bold mb-1" style="color: #1e1b4b; letter-spacing: -0.3px;">ISK Coffee</h4>
                 <p class="text-muted small mb-0">Silakan masuk ke akun Anda</p>
             </div>
 
@@ -126,7 +126,7 @@
 
             <!-- Footer Kartu -->
             <div class="text-center pt-3 pb-1 border-top mt-2" style="border-color: #e0e7ff !important;">
-                <small class="text-muted" style="font-size: 0.78rem;">&copy; {{ date('Y') }} POS Saung Biru Rasa</small>
+                <small class="text-muted" style="font-size: 0.78rem;">&copy; {{ date('Y') }} POS ISK Coffee</small>
             </div>
 
         </div>

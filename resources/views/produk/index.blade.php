@@ -158,7 +158,7 @@
                                 <tr>
                                     
                                     <td colspan="9" class="text-center py-5 text-slate-400">
-                                        <i class="bi bi-box-seam fs-1 d-block mb-2"></i>
+                                        <i class="bi bi-cup-hot fs-1 d-block mb-2"></i>
                                         Data produk tidak tersedia.
                                     </td>
                                 </tr>
