@@ -7,6 +7,13 @@ use App\Http\Controllers\ItemPenjualanController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\UserController;
+use Illuminate\View\View;
+use App\Models\Produk;
+
+Route::get('/', function () {
+    $products = Produk::all();
+    return view('menu', compact('products'));
+});
 
 // Route yang bisa diakses ketika user belum login
 Route::middleware('guest')->group(function () {
