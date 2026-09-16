@@ -59,7 +59,7 @@
 
 
 <div class="mb-3">
-      <label>Harga Beli</label><br>
+      <label>Harga Pokok</label><br>
       <input type="number" name="purchase_price" 
              class="form-control @error('purchase_price') is-invalid @enderror"
              value="{{ old('purchase_price', $produk->harga_beli ?? '') }}">
@@ -84,7 +84,7 @@
 </div>
 
 <div class="mb-3">
-      <label>Stok</label><br>
+      <label>Stok Bahan</label><br>
       <input type="number" name="stok" 
              class="form-control @error('stok') is-invalid @enderror"
              value="{{ old('stok', $produk->stok ?? '') }}">

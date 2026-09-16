@@ -197,17 +197,29 @@
                             </span>
                         </div>
 
-                        <form method="POST" action="{{ route('penjualan.update', $sale->id) }}" onsubmit="return confirm('Yakin ingin menyelesaikan transaksi (Checkout)?')">
+                        <form method="POST" action="{{ route('penjualan.update', $sale->id) }}" onsubmit="return confirmCheckout(event)">
                             @csrf 
                             @method('PUT')
 
                             <div class="mb-3">
                                 <label class="form-label small fw-semibold text-slate-600">Metode Pembayaran</label>
-                                <select name="payment_method" class="form-select bg-white text-slate-800" required>
-                                    <option value="">Pilih Metode Pembayaran</option>
+                                <select name="payment_method" id="payment_method" class="form-select bg-white text-slate-800" required>
+                                    <option value="" selected>Pilih Metode Pembayaran</option>
                                     <option value="CASH">Cash</option>
                                     <option value="QRIS">QRIS</option>
                                 </select>
+                            </div>
+
+                            <!-- Tersembunyi secara default (d-none) -->
+                            <div id="bayar_group" class="mb-3 d-none">
+                                <label class="form-label small fw-semibold text-slate-600">Bayar</label>
+                                <input type="number" name="paid_amount" id="paid_amount" class="form-control" placeholder="0" min="{{ $sale->total_pembayaran }}">
+                            </div>
+
+                            <!-- Tersembunyi secara default (d-none) -->
+                            <div id="kembalian_group" class="mb-3 p-2 bg-white rounded border justify-content-between align-items-center d-none">
+                                <span class="small fw-semibold text-slate-600">Kembalian:</span>
+                                <span id="kembalian_text" class="fw-bold text-slate-800">Rp 0</span>
                             </div>
 
                             <button type="submit" 
@@ -240,5 +252,79 @@
         </div>
     </div>
 </div>
+
+<script>
+    const totalPembayaran = {{ $sale->total_pembayaran }};
+    const paymentMethodSelect = document.getElementById('payment_method');
+    const bayarGroup = document.getElementById('bayar_group');
+    const paidAmountInput = document.getElementById('paid_amount');
+    const kembalianGroup = document.getElementById('kembalian_group');
+    const kembalianText = document.getElementById('kembalian_text');
+
+    paymentMethodSelect.addEventListener('change', function() {
+        const method = this.value;
+
+        if (method === 'CASH') {
+            // Hanya muncul saat CASH dipilih
+            bayarGroup.classList.remove('d-none');
+            kembalianGroup.classList.remove('d-none');
+            kembalianGroup.classList.add('d-flex');
+            
+            paidAmountInput.value = '';
+            paidAmountInput.setAttribute('required', 'required');
+            calculateChange();
+        } else if (method === 'QRIS') {
+            bayarGroup.classList.add('d-none');
+            kembalianGroup.classList.add('d-none');
+            kembalianGroup.classList.remove('d-flex');
+            
+            paidAmountInput.value = totalPembayaran;
+            paidAmountInput.removeAttribute('required');
+        } else {
+            // Sembunyikan jika kembali memilih "Pilih Metode Pembayaran"
+            bayarGroup.classList.add('d-none');
+            kembalianGroup.classList.add('d-none');
+            kembalianGroup.classList.remove('d-flex');
+            
+            paidAmountInput.value = '';
+            paidAmountInput.removeAttribute('required');
+        }
+    });
+
+    function calculateChange() {
+        if (paymentMethodSelect.value !== 'CASH') return;
+
+        const bayar = parseFloat(paidAmountInput.value) || 0;
+        const kembalian = bayar - totalPembayaran;
+
+        if (bayar > 0) {
+            if (kembalian >= 0) {
+                kembalianText.innerText = 'Rp ' + kembalian.toLocaleString('id-ID');
+                kembalianText.className = 'fw-bold text-success';
+            } else {
+                kembalianText.innerText = 'Uang Kurang! (Rp ' + Math.abs(kembalian).toLocaleString('id-ID') + ')';
+                kembalianText.className = 'fw-bold text-danger';
+            }
+        } else {
+            kembalianText.innerText = 'Rp 0';
+            kembalianText.className = 'fw-bold text-slate-800';
+        }
+    }
+
+    paidAmountInput.addEventListener('input', calculateChange);
+
+    function confirmCheckout(e) {
+        const method = paymentMethodSelect.value;
+        if (method === 'CASH') {
+            const bayar = parseFloat(paidAmountInput.value) || 0;
+            if (bayar < totalPembayaran) {
+                alert('Jumlah pembayaran tunai kurang dari total pembayaran!');
+                e.preventDefault();
+                return false;
+            }
+        }
+        return confirm('Yakin ingin menyelesaikan transaksi ini?');
+    }
+</script>
 
 @endsection

@@ -70,9 +70,9 @@
                                 <th scope="col" class="py-3">FOTO</th>
                                 <th scope="col" class="py-3">NAMA MENU</th>
                                 <th scope="col" class="py-3">JENIS</th>
-                                <th scope="col" class="py-3">HARGA BELI</th>
+                                <th scope="col" class="py-3">HARGA POKOK</th>
                                 <th scope="col" class="py-3">HARGA JUAL</th>
-                                <th scope="col" class="py-3 text-center">STOK</th>
+                                <th scope="col" class="py-3 text-center">STOK BAHAN</th>
                                 <th scope="col" class="py-3">ADMIN</th>
                                 <th class="text-end pe-4" style="width: 20%;">AKSI</th>
                             </tr>
