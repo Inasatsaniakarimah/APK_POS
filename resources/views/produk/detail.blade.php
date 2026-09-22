@@ -58,6 +58,12 @@
                             <p class="text-slate-700 mb-0">{{ $produk->jenis }}</p>
                         </div>
 
+                        <div class= "mb-3">
+                            <span class="text-slate-400 font-monospace small fw-bold d-block text-uppercase">DESKRIPSI</span>
+                            <p class="text-slate-700 mb-0">{{ $produk->deskripsi }}</p>
+                        </div>
+
+
                         <div class="row g-3 mb-3">
                             <div class="col-6">
                                 <div class="p-3 bg-light rounded-3 border-0">

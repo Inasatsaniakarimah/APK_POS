@@ -15,6 +15,7 @@ class Produk extends Model
         'user_id',
         'foto',
         'Jenis',
+        'deskripsi',
         'nama',
         'harga_beli',
         'harga_jual',

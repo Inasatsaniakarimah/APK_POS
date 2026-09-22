@@ -57,6 +57,15 @@
         <div class="invalid-feedback">{{ $message }}</div>
     @enderror
 
+    <div class="mb-3">
+        <label>Deskripsi</label><br>
+        <textarea name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" rows="3">{{ old('deskripsi', $produk->deskripsi ?? '') }}</textarea>
+        @error('deskripsi')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+        @enderror
+    </div>
 
 <div class="mb-3">
       <label>Harga Pokok</label><br>

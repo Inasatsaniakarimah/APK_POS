@@ -1,10 +1,7 @@
-<!-- memanggil file app.blade.php -->
 @extends('layouts.app')
 
-<!-- mengirimkan nilai ke tittle untuk ditampilkan --> 
 @section('title', 'Beranda')
 
-<!-- batas awal isi konten --> 
 @section('content')
 
 @include('layouts.navbar')
@@ -17,20 +14,50 @@
     .rounded-4 { border-radius: 1rem !important; }
     .tracking-wider { letter-spacing: 0.05em; }
     .table thead th { font-size: 0.75rem; font-weight: 700; }
+
+    @media print {
+        nav, .navbar, .no-print, button {
+            display: none !important;
+        }
+
+        body, .bg-slate-100 {
+            background-color: #ffffff !important;
+            padding: 0 !important;
+        }
+
+        .container {
+            max-width: 100% !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .card, .shadow-sm {
+            box-shadow: none !important;
+            border: 1px solid #e2e8f0 !important;
+        }
+    }
 </style>
 
 <div class="bg-slate-100 min-vh-100 py-5" style="background-color: #f8fafc;">
     <div class="container">
-        
-        <div class="d-flex align-items-center mb-5">
-            <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white shadow-sm rounded-4" style="width: 56px; height: 56px;">
-                <i class="bi bi-grid-1x2-fill text-indigo fs-4" style="color: #4f46e5;"></i>
+        <div class="d-flex align-items-center justify-content-between mb-5">
+            <div class="d-flex align-items-center">
+                <div class="flex-shrink-0 d-flex align-items-center justify-content-center bg-white shadow-sm rounded-4" style="width: 56px; height: 56px;">
+                    <i class="bi bi-grid-1x2-fill text-indigo fs-4" style="color: #4f46e5;"></i>
+                </div>
+                <div class="ms-3">
+                    <h3 class="fw-bold text-slate-800 mb-0">Ringkasan Hari Ini</h3>
+                    <p class="text-slate-500 mb-0 small">
+                        <i class="bi bi-calendar3 me-1"></i> {{ $tanggalHariIni->translatedFormat('l, d F Y') }}
+                    </p>
+                </div>
             </div>
-            <div class="ms-3">
-                <h3 class="fw-bold text-slate-800 mb-0">Ringkasan Hari Ini</h3>
-                <p class="text-slate-500 mb-0 small">
-                    <i class="bi bi-calendar3 me-1"></i> {{ $tanggalHariIni->translatedFormat('l, d F Y') }}
-                </p>
+
+            <div class="no-print">
+                <button onclick="window.print()" class="btn text-white fw-semibold rounded-3 px-4 py-2 shadow-sm d-inline-flex align-items-center" style="background-color: #4f46e5;">
+                    <i class="bi bi-printer me-2"></i> Cetak Ringkasan
+                </button>
             </div>
         </div>
 
@@ -39,7 +66,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card border-0 shadow-sm rounded-4 h-100 bg-white border-start border-4" style="border-color: #e30d0d !important;">
                         <div class="card-body p-4 text-center">
-                            <p class="text-uppercase text-slate-400 fw-bold small mb-2 tracking-wider">Total Penjualan</p>
+                            <p class="text-uppercase text-slate-400 fw-bold small mb-2 tracking-wider">Laporan Penjualan</p>
                             <h4 class="fw-bold text-slate-800 mb-2" style="color: #e30d0d;">Rp {{ number_format($ringkasan['total_penjualan'], 0, ',', '.') }} </h4>
                             <span class="badge px-3 py-2 rounded-pill" style="background-color: #eef2ff; color: #e30d0d;">Hari Ini</span>
                         </div>

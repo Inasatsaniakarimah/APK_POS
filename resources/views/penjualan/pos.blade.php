@@ -210,16 +210,23 @@
                                 </select>
                             </div>
 
-                            <!-- Tersembunyi secara default (d-none) -->
+                            <!-- Opsi Cash: Input Bayar -->
                             <div id="bayar_group" class="mb-3 d-none">
                                 <label class="form-label small fw-semibold text-slate-600">Bayar</label>
                                 <input type="number" name="paid_amount" id="paid_amount" class="form-control" placeholder="0" min="{{ $sale->total_pembayaran }}">
                             </div>
 
-                            <!-- Tersembunyi secara default (d-none) -->
+                            <!-- Opsi Cash: Info Kembalian -->
                             <div id="kembalian_group" class="mb-3 p-2 bg-white rounded border justify-content-between align-items-center d-none">
                                 <span class="small fw-semibold text-slate-600">Kembalian:</span>
                                 <span id="kembalian_text" class="fw-bold text-slate-800">Rp 0</span>
+                            </div>
+
+                            <!-- Opsi QRIS: Display Gambar QR Code -->
+                            <div id="qris_group" class="mb-3 p-3 bg-white rounded border text-center d-none">
+                                <p class="small fw-semibold text-slate-600 mb-2">Scan QRIS untuk Melakukan Pembayaran</p>
+                                <img src="{{ asset('storage/images/barcode.png') }}" alt="QRIS Code" class="img-fluid rounded border shadow-sm mb-2" style="max-width: 200px;">
+                                <div class="text-slate-500 small">Pastikan nominal transfer sesuai: <strong>Rp {{ number_format($sale->total_pembayaran, 0, ',', '.') }}</strong></div>
                             </div>
 
                             <button type="submit" 
@@ -260,31 +267,40 @@
     const paidAmountInput = document.getElementById('paid_amount');
     const kembalianGroup = document.getElementById('kembalian_group');
     const kembalianText = document.getElementById('kembalian_text');
+    const qrisGroup = document.getElementById('qris_group');
 
     paymentMethodSelect.addEventListener('change', function() {
         const method = this.value;
 
         if (method === 'CASH') {
-            // Hanya muncul saat CASH dipilih
+            // Tampilkan grup pembayaran Cash
             bayarGroup.classList.remove('d-none');
             kembalianGroup.classList.remove('d-none');
             kembalianGroup.classList.add('d-flex');
+            
+            // Sembunyikan grup QRIS
+            qrisGroup.classList.add('d-none');
             
             paidAmountInput.value = '';
             paidAmountInput.setAttribute('required', 'required');
             calculateChange();
         } else if (method === 'QRIS') {
+            // Sembunyikan grup Cash
             bayarGroup.classList.add('d-none');
             kembalianGroup.classList.add('d-none');
             kembalianGroup.classList.remove('d-flex');
             
+            // Tampilkan grup QRIS
+            qrisGroup.classList.remove('d-none');
+            
             paidAmountInput.value = totalPembayaran;
             paidAmountInput.removeAttribute('required');
         } else {
-            // Sembunyikan jika kembali memilih "Pilih Metode Pembayaran"
+            // Sembunyikan semua grup jika belum memilih
             bayarGroup.classList.add('d-none');
             kembalianGroup.classList.add('d-none');
             kembalianGroup.classList.remove('d-flex');
+            qrisGroup.classList.add('d-none');
             
             paidAmountInput.value = '';
             paidAmountInput.removeAttribute('required');

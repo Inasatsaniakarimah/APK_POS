@@ -139,7 +139,7 @@
     }
 </style>
 
-<!-- NAVBAR -->
+
 <nav class="navbar navbar-expand-lg navbar-glass sticky-top py-3">
     <div class="container-full d-flex justify-content-between align-items-center">
         <a class="navbar-brand d-flex align-items-center gap-3 fw-bold" href="/" style="color: #1e1b4b;">
@@ -158,7 +158,6 @@
     </div>
 </nav>
 
-<!-- HERO FULL SCREEN BANNER -->
 <section class="hero-wrapper text-center">
     <div class="container-full position-relative" style="z-index: 2;">
         <div class="d-inline-flex align-items-center gap-2 px-4 py-2 rounded-pill mb-4" style="background: rgba(255, 255, 255, 0.8); border: 1px solid #c7d2fe; backdrop-filter: blur(10px);">
@@ -182,11 +181,8 @@
     </div>
 </section>
 
-<!-- MAIN CONTENT SECTION (FULL SCREEN / FULL WIDTH) -->
 <div class="py-5" id="menu-section">
     <div class="container-full py-4">
-
-        <!-- HEADER DAFTAR MENU -->
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5">
             <div>
                 <span class="text-uppercase fw-bold small" style="color: #4f46e5; letter-spacing: 2px;">Pilihan Spesial</span>
@@ -195,12 +191,10 @@
             <p class="text-muted mb-0 mt-2 mt-md-0" style="max-width: 400px;">Nikmati aneka hidangan minuman dan makanan segar yang diracik khusus untuk Anda.</p>
         </div>
 
-        <!-- GRID MENU (RESPONSIF FULL WIDTH) -->
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-4 mb-5">
             @forelse ($products as $product)
                 <div class="col">
                     <div class="card card-menu h-100">
-                        <!-- Foto Produk -->
                         <div class="img-container">
                             @if($product->foto)
                                 <img src="{{ asset('storage/' . $product->foto) }}" class="card-menu-img" alt="{{ $product->nama }}">
@@ -212,12 +206,13 @@
                             @endif
                         </div>
 
-                        <!-- Content Produk (Nama & Harga Only) -->
                         <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
                             <h5 class="fw-bold mb-4" style="color: #1e1b4b; font-size: 1.15rem; line-height: 1.4; min-height: 2.8rem;">
                                 {{ $product->nama }}
                             </h5>
-
+                            <p class="text-muted small mb-4">
+                                {{ $product->deskripsi ?? 'Deskripsi tidak tersedia.' }}
+                            </p>
                             <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: #e0e7ff !important;">
                                 <span class="text-muted small fw-medium">Harga</span>
                                 <span class="badge-price">
@@ -238,33 +233,23 @@
             @endforelse
         </div>
 
-        <!-- SECTION TENTANG KAMI (SPLIT BANNER LUXURY STYLE) -->
 <div class="my-5 py-5 px-4 px-md-5 rounded-4 position-relative overflow-hidden" style="background-color: #ffffff; border: 1px solid #e0e7ff; box-shadow: 0 4px 20px rgba(79, 70, 229, 0.05);">
     <div class="row align-items-center g-5">
-        
-        <!-- KOLOM KIRI: TEKS TENTANG KAMI -->
         <div class="col-lg-6">
             <span class="text-uppercase fw-bold small d-block mb-2" style="color: #4f46e5; letter-spacing: 2px;">Tentang Kami</span>
             
             <h2 class="fw-bold mb-4" style="color: #1e1b4b; font-size: clamp(1.6rem, 2.5vw, 2.2rem); letter-spacing: -0.5px; line-height: 1.3;">
                 TIDAK ADA YANG LEBIH MENYENANGKAN DARIPADA MENIKMATI SECANGKIR KOPI HANGAT & HIDANGAN SPESIAL UNTUK HARI ANDA.
             </h2>
-
-            <!-- Aksen Garis Indigo -->
             <div class="mb-4" style="width: 60px; height: 3px; background: linear-gradient(90deg, #4f46e5, #818cf8); border-radius: 2px;"></div>
 
             <p class="text-uppercase mb-0" style="color: #4b5563; font-size: 0.9rem; letter-spacing: 1px; line-height: 1.8; font-weight: 500;">
                 APAKAH ANDA SEDANG MENCARI CARA UNTUK MEMANJAKAN DIRI? <strong style="color: #1e1b4b;">ISK COFFEE</strong> MENYEDIAKAN BERBAGAI PILIHAN FAVORIT UNTUK MENEMANI SEPATUTNYA MOMEN BERHARGA ANDA.
             </p>
         </div>
-
-        <!-- KOLOM KANAN: GAMBAR BERBINGKAI -->
         <div class="col-lg-6">
             <div class="position-relative p-3 p-md-4">
-                <!-- Bingkai Garis Aksen Indigo (Outline Border) -->
                 <div class="position-absolute" style="top: 0; right: 0; bottom: 15px; left: 25px; border: 2px solid #c7d2fe; border-radius: 16px; z-index: 1;"></div>
-                
-                <!-- Gambar Utama -->
                 <div class="position-relative" style="z-index: 2;">
                     <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1000&auto=format&fit=crop" 
                          alt="ISK Coffee Experience" 
@@ -280,7 +265,6 @@
     </div>
 </div>
 
-<!-- FOOTER -->
 <footer class="py-4 text-center border-top" style="background: #ffffff; border-color: #e0e7ff !important;">
     <p class="text-muted small mb-0">© 2026 POS ISK Coffee. All rights reserved.</p>
 </footer>
